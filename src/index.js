@@ -19,7 +19,7 @@ app.use(cors());
 app.use(morgan("dev"));
 
 
-app.use("/api/v1/user",userRoute);
+app.use("/api/v1/auth",userRoute);
 
 app.listen(PORT,() => {
     connectDB();

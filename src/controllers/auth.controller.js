@@ -21,8 +21,7 @@ export const register = async (req,res) => {
         }
 
         const userExists = await User.findOne({ email});
-        console.log(userExists);
-        if(userExists){
+        if(userExists){ 
             return res.status(400).json({
                 message: "User already exists",
                 success: false,
@@ -30,11 +29,12 @@ export const register = async (req,res) => {
         }
 
         const newUser = await User.create({
-            username,
-            fullName,
+            firstName,
+            lastName,
             email,
             password,
         })
+
         
         return res.status(201).json({
             message: "User registered successfully",
